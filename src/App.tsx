@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import './style/main.scss';
+import { Header, Menu } from "./containers/layout"; 
+import { LocationView, LoginView } from "./views"; 
+import { useSelector, useDispatch } from "react-redux";
+import { RootState, CoreActions } from "./store";
+import { useEffect } from 'react';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  
+  const dispatch = useDispatch();
+  const initialized = useSelector((state: RootState) => state.core.initialized);
+  
+  const authenticated = useSelector(
+    (state: RootState) => state.auth.authenticated,
   );
-}
 
+  useEffect(() => {
+    !initialized && dispatch(CoreActions.initialize());
+  });
+
+ return (
+  <>
+  {!authenticated && 
+    <LoginView/> }
+  
+  {authenticated && 
+    <>
+    <Header/>
+    <Menu/>
+
+    <div className="content"><LocationView/></div></>}
+  </>
+)
+}
 export default App;

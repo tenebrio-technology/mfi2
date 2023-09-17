@@ -1,0 +1,6 @@
+@use "../../style/variables"; 
+
+.location-faq { 
+  min-height: 100%; 
+  background: variables.$bg-1 url('/assets/media/globe.png') no-repeat bottom -100px right  -100px; 
+}

@@ -1,0 +1,72 @@
+/* bootstrap customizations - overriding bootstrap styles which cannot easily be done with 
+   sass variables. */
+
+@use "./variables"; 
+
+.btn-primary { 
+  border: variables.$border-1; 
+  color: variables.$fg-1; 
+  background: variables.$bg-2; 
+
+  &:hover, &:active, &:focus { 
+    border: variables.$border-1;
+    background: variables.$bg-1;  
+  }
+}
+
+.dropdown-menu { 
+  border: variables.$border-1; 
+  padding: .3rem; 
+  
+  .dropdown-item { 
+    margin: .3rem; 
+    padding: .3rem .3rem; 
+    width: auto; 
+    border-radius: variables.$border-radius; 
+
+    &:hover { 
+      background: variables.$bg-3; 
+      color: #fff; 
+    }
+  }
+}
+
+.navbar-nav { 
+  width: 100%; 
+  .nav-link { 
+    width: 100%; 
+    border-radius: variables.$border-radius; 
+    padding: .3rem; 
+    margin: .3rem; 
+    &:hover { 
+     background: variables.$bg-3; 
+     color: #fff; 
+    }
+    &:focus { 
+      color: #fff; 
+    }
+  }
+}
+
+.card { 
+  background: variables.$bg-2; 
+  border: variables.$border-1; 
+
+  .card-title { 
+    color: #fff; 
+  }
+
+}
+
+.alert-danger { 
+  background: #180404; 
+  color: #DD4040; 
+  border: #BB4040 1px solid; 
+}
+
+form .alert-danger { 
+  margin: 0 -1rem; 
+  border-radius: 0; 
+  border-left: 0; 
+  border-right: 0; 
+}
