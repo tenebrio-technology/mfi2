@@ -1,6 +1,6 @@
-import { createReducer } from "@reduxjs/toolkit";
-import { UIActions } from "../actions";
-import { IUser } from "../../model";
+import { createReducer } from '@reduxjs/toolkit';
+import { UIActions } from '../actions';
+import { IUser } from '../../model';
 
 export interface UIState {
   showMenubar: boolean;

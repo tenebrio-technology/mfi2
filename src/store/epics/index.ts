@@ -1,8 +1,8 @@
-import { Epic, combineEpics } from "redux-observable";
+import { Epic, combineEpics } from 'redux-observable';
 
-import coreEpics from "./core.epics";
-import uiEpics from "./ui.epics";
-import authEpics from "./auth.epics";
+import coreEpics from './core.epics';
+import uiEpics from './ui.epics';
+import authEpics from './auth.epics';
 
 export interface EpicCollection {
   [key: string]: Epic;

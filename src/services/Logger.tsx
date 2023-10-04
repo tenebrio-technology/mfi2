@@ -9,7 +9,7 @@ export interface ILogger {
   debug: LogFn;
 }
 
-export type LogLevel = "log" | "warn" | "error";
+export type LogLevel = 'log' | 'warn' | 'error';
 
 export class Logger implements ILogger {
   readonly log: LogFn;

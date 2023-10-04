@@ -1,5 +1,5 @@
-import axios from "axios";
-import { ILogger } from "./Logger";
+import axios from 'axios';
+import { ILogger } from './Logger';
 
 export class Api {
   token: string | null = null;
@@ -12,19 +12,19 @@ export class Api {
     this.token = null;
     this.logger = logger;
     this.defaultRequest = {
-      method: "get",
+      method: 'get',
       baseURL,
     };
   }
 
   async get(url: string): Promise<any> {
-    console.log("Api.get");
-    console.log("token: ", this.token);
+    console.log('Api.get');
+    console.log('token: ', this.token);
     let request: any = {
       ...this.defaultRequest,
       url,
-      method: "get",
-      headers: { Authorization: "Bearer " + this.token },
+      method: 'get',
+      headers: { Authorization: 'Bearer ' + this.token },
     };
     return await axios(request);
   }
@@ -33,11 +33,11 @@ export class Api {
     let request: any = {
       ...this.defaultRequest,
       url,
-      method: "POST",
+      method: 'POST',
       data: payload,
-      headers: { Authorization: "Bearer " + this.token },
+      headers: { Authorization: 'Bearer ' + this.token },
     };
-    this.logger?.debug("payload:", payload, url, request);
+    this.logger?.debug('payload:', payload, url, request);
     return axios(request);
   }
 }

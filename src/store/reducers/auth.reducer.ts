@@ -1,6 +1,6 @@
-import { createReducer } from "@reduxjs/toolkit";
-import { AuthActions } from "..";
-import { IUser } from "../../model";
+import { createReducer } from '@reduxjs/toolkit';
+import { AuthActions } from '..';
+import { IUser } from '../../model';
 
 export interface AuthState {
   authToken?: string | null;
@@ -21,7 +21,7 @@ export const authReducer = createReducer<AuthState>(initialState, (builder) => {
   builder
 
     .addCase(AuthActions.setToken, (state, { payload }) => {
-      console.log("setToken reducer", payload);
+      console.log('setToken reducer', payload);
       state.authToken = payload;
       state.authenticated = true;
     })
@@ -45,7 +45,7 @@ export const authReducer = createReducer<AuthState>(initialState, (builder) => {
     })
 
     .addCase(AuthActions.logoutSuccess, (state) => {
-      console.log("logoutSuccess reducer ");
+      console.log('logoutSuccess reducer ');
       state.authToken = null;
       state.user = undefined;
       state.authenticated = false;

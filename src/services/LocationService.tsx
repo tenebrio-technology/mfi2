@@ -1,5 +1,5 @@
-import { BaseService, ServiceResponse } from "./BaseService";
-import { ILocation } from "../model";
+import { BaseService, ServiceResponse } from './BaseService';
+import { ILocation } from '../model';
 
 interface ILoginCredentials {
   username: string;
@@ -8,7 +8,7 @@ interface ILoginCredentials {
 
 export class LocationService extends BaseService {
   async fetch(organisationId?: number): Promise<ILocation[]> {
-    let response = await this.services.api("/location/fetch", {
+    let response = await this.services.api('/location/fetch', {
       organisationId,
     });
 

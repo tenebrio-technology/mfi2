@@ -1,6 +1,6 @@
-import { createReducer } from "@reduxjs/toolkit";
-import { DataActions } from "..";
-import { IUser } from "../../model";
+import { createReducer } from '@reduxjs/toolkit';
+import { DataActions } from '..';
+import { IUser } from '../../model';
 
 interface DataState {
   fetching: boolean;
@@ -14,11 +14,8 @@ const initialState: DataStates = {
   location: { fetching: false },
 };
 
-export const dataReducer = createReducer<DataStates>(
-  initialState,
-  (builder) => {
-    builder.addCase(DataActions.fetch, (state, action) => {
-      state.location.fetching = true;
-    });
-  },
-);
+export const dataReducer = createReducer<DataStates>(initialState, (builder) => {
+  builder.addCase(DataActions.fetch, (state, action) => {
+    state.location.fetching = true;
+  });
+});

@@ -1,8 +1,8 @@
-import { createAction } from "@reduxjs/toolkit";
-import { LoginFormEntry } from "../../model/forms/login.schema";
+import { createAction } from '@reduxjs/toolkit';
+import { LoginFormEntry } from '../../model/forms/login.schema';
 
 export const DataActions = {
-  fetch: createAction("data/fetch"),
-  update: createAction("data/update"),
-  delete: createAction("data/delete"),
+  fetch: createAction('data/fetch'),
+  update: createAction('data/update'),
+  delete: createAction('data/delete'),
 };

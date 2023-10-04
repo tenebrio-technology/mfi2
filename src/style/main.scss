@@ -1,41 +1,39 @@
+@use './variables';
+@use './animation';
 
-@use "./variables"; 
-@use "./animation"; 
+@import './vendors'; // Bootstrap cusatomizations
 
-@import "./vendors"; // Bootstrap cusatomizations 
+#Header {
+  border-bottom: variables.$border-1;
+  min-height: variables.$header-height;
+  max-height: variables.$header-height;
+  background: variables.$bg-2;
+  z-index: 1000;
 
-#Header { 
-  border-bottom: variables.$border-1; 
-  min-height: variables.$header-height; 
-  max-height: variables.$header-height; 
-  background: variables.$bg-2; 
-  z-index: 1000; 
-
-  .navbar-brand { 
+  .navbar-brand {
     font-family: 'Oswald', sans-serif;
-    font-size: 1.8rem; 
-    color: #fff; 
-    padding: 0; 
+    font-size: 1.8rem;
+    color: #fff;
+    padding: 0;
 
     .svg-inline--fa {
-      color: variables.$fg-1; 
+      color: variables.$fg-1;
     }
 
-    .logo { 
-      height: variables.$header-height - 1; 
-      fill: #fff; 
+    .logo {
+      height: variables.$header-height - 1;
+      fill: #fff;
     }
-
   }
 }
 
-.navbar-vertical { 
-  border-right: variables.$border-1; 
+.navbar-vertical {
+  border-right: variables.$border-1;
   position: fixed;
-  top: variables.$header-height; 
-  width: variables.$menu-width; 
-  background: variables.$bg-2; 
-  z-index: 1000; 
+  top: variables.$header-height;
+  width: variables.$menu-width;
+  background: variables.$bg-2;
+  z-index: 1000;
   height: calc(100vh - variables.$header-height);
 
   .container-fluid {
@@ -44,26 +42,24 @@
   }
 
   &.navbar-expand-sm {
-  
     .navbar-nav {
       flex-direction: column;
       align-items: flex-start;
     }
   }
-  
 }
 
-.content { 
-  padding: 2rem; 
-  padding-top: variables.$header-height + 2rem; 
-  animation: fadeIn 1s; 
-  h1 { 
-    color: #fff; 
+.content {
+  padding: 2rem;
+  padding-top: variables.$header-height + 2rem;
+  animation: fadeIn 1s;
+  h1 {
+    color: #fff;
   }
 }
 
-@include media-breakpoint-up(sm) { 
-  .content { 
+@include media-breakpoint-up(sm) {
+  .content {
     margin-left: variables.$menu-width;
   }
 }
@@ -80,4 +76,17 @@ input:-webkit-autofill:focus {
   transition:
     background-color 0s 600000s,
     color 0s 600000s;
+}
+
+
+.closable { 
+
+  .close { 
+    color: variables.$fg-1;
+    display: none; 
+  }
+
+  &:hover .close { 
+    display: block; 
+  }
 }

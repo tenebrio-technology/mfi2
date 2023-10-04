@@ -1,9 +1,9 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
-import { coreReducer, CoreState } from "./core.reducer";
-import { uiReducer, UIState } from "./ui.reducer";
-import { authReducer, AuthState } from "./auth.reducer";
-import { dataReducer, DataStates } from "./data.reducer";
+import { coreReducer, CoreState } from './core.reducer';
+import { uiReducer, UIState } from './ui.reducer';
+import { authReducer, AuthState } from './auth.reducer';
+import { dataReducer, DataStates } from './data.reducer';
 
 export type RootState = {
   core: CoreState;

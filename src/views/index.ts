@@ -1,3 +1,2 @@
-
-export * from "./location/LocationView"; 
-export * from "./login/LoginView"; 
+export * from './location/LocationView';
+export * from './login/LoginView';

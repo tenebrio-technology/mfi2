@@ -1,23 +1,22 @@
+@use './variables';
 
-@use "./variables"; 
-
-@import url("https://fonts.googleapis.com/css2?family=Abel&family=Oswald&family=Source+Code+Pro:wght@200&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Oswald&family=Source+Code+Pro:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Source+Code+Pro:wght@200&display=swap');
 
-$body-bg: variables.$bg-1; 
-$body-color: variables.$fg-1; 
+$body-bg: variables.$bg-1;
+$body-color: variables.$fg-1;
 $navbar-light-color: variables.$fg-1;
 $font-family-sans-serif: variables.$font-family;
 $font-size-base: variables.$font-size;
-$primary:       variables.$bg-1;
-$primary-border: #fff; 
-$danger: variables.$error-fg; 
+$primary: variables.$bg-1;
+$primary-border: #fff;
+$danger: variables.$error-fg;
 
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
-@import "./bs_customizations"; 
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import './bs_customizations';
 
 //$fa-font-path: "../../node_modules/@fortawesome/fontawesome-free/webfonts";
-@import '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss'; 
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import '../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss';
 @import '../../node_modules/@fortawesome/fontawesome-free/scss/regular.scss';
 @import '../../node_modules/@fortawesome/fontawesome-free/scss/brands.scss';

@@ -1,6 +1,6 @@
-import { BaseService, ServiceResponse } from "./BaseService";
-import { IUser } from "../model/User";
-import { AxiosError } from "axios";
+import { BaseService, ServiceResponse } from './BaseService';
+import { IUser } from '../model/User';
+import { AxiosError } from 'axios';
 
 interface ILoginCredentials {
   username: string;
@@ -8,8 +8,8 @@ interface ILoginCredentials {
 }
 
 class LoginCredentials implements ILoginCredentials {
-  username = "";
-  password = "";
+  username = '';
+  password = '';
 }
 
 interface ILoginResponse extends ServiceResponse {
@@ -24,12 +24,12 @@ class LoginResponse implements ILoginResponse {
 export class AuthService extends BaseService {
   async login(credentials: ILoginCredentials): Promise<ILoginResponse> {
     let response;
-    console.log("called with: ", credentials);
+    console.log('called with: ', credentials);
 
     try {
-      response = await this.services.api.post("/login", credentials);
+      response = await this.services.api.post('/login', credentials);
     } catch (err: AxiosError | any) {
-      this.logger.error("API error", err);
+      this.logger.error('API error', err);
       return this.errorResponse(err.message);
     }
 
@@ -37,21 +37,21 @@ export class AuthService extends BaseService {
   }
 
   async storeToken(token: string) {
-    localStorage.setItem("token", token);
+    localStorage.setItem('token', token);
   }
 
   async getToken() {
-    return localStorage.getItem("token");
+    return localStorage.getItem('token');
   }
 
   async clearToken() {
-    localStorage.removeItem("token");
+    localStorage.removeItem('token');
   }
 
   async verifyToken(token: string): Promise<boolean> {
     let response;
     try {
-      response = await this.services.api("/verifyToken", token);
+      response = await this.services.api('/verifyToken', token);
     } catch (err: AxiosError | any) {
       if (err.response?.status == 401) {
         return false;

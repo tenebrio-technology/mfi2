@@ -1,4 +1,4 @@
-import { ILogger } from ".";
+import { ILogger } from '.';
 
 export interface ServiceResponse {
   success: boolean;
