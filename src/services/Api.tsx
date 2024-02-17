@@ -1,43 +1,68 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { ILogger } from './Logger';
 
+export interface ApiResult {
+  success: boolean;
+  message?: string;  
+  response?: AxiosResponse; 
+}
+
 export class Api {
-  token: string | null = null;
-  defaultRequest: any = null;
+
+  private token: string | null = null;
+  defaultRequest: AxiosRequestConfig;
   baseURL: string | null = null;
-  logger: ILogger | null = null;
+  logger: ILogger;
 
   constructor(baseURL: string, logger: ILogger) {
+    
     this.baseURL = baseURL;
     this.token = null;
     this.logger = logger;
     this.defaultRequest = {
       method: 'get',
-      baseURL,
+      baseURL
     };
   }
 
-  async get(url: string): Promise<any> {
-    console.log('Api.get');
-    console.log('token: ', this.token);
+  setToken(token: string) { 
+    this.token = token; 
+    this.defaultRequest = { ...this.defaultRequest, headers: { Authorization: 'Bearer ' + this.token}}; 
+  }
+
+  async get(url: string): Promise<ApiResult> {
     let request: any = {
       ...this.defaultRequest,
       url,
-      method: 'get',
-      headers: { Authorization: 'Bearer ' + this.token },
     };
-    return await axios(request);
+    return await this.request(request);
   }
 
-  async post(url: string, payload: any): Promise<any> {
-    let request: any = {
+  async post(url: string, payload: any): Promise<ApiResult> {
+    let request: AxiosRequestConfig = {
       ...this.defaultRequest,
       url,
       method: 'POST',
-      data: payload,
-      headers: { Authorization: 'Bearer ' + this.token },
+      data: payload
     };
-    this.logger?.debug('payload:', payload, url, request);
-    return axios(request);
+    return await this.request(request);
+  }
+
+  async request(request: AxiosRequestConfig): Promise<ApiResult> {
+    
+    let response: AxiosResponse; 
+    this.logger.debug("api request", request); 
+    try { 
+      response = await axios(request); 
+    } catch(ex) { 
+      this.logger.error("api error: ", ex); 
+      if(ex instanceof Error) {
+        return {success: false, message: ex.message}
+      }        
+      return {success: false }
+    }
+
+    return { success: true, response}
+
   }
 }

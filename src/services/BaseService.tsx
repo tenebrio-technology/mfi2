@@ -1,9 +1,7 @@
 import { ILogger } from '.';
+import { IServiceResponse } from '../model';
 
-export interface ServiceResponse {
-  success: boolean;
-  errors?: string[];
-}
+
 
 export class BaseService {
   services: any;
@@ -14,8 +12,13 @@ export class BaseService {
     this.services = services;
   }
 
-  errorResponse = (msg: string): ServiceResponse => ({
+  errorResponse = (msg: string): IServiceResponse => ({
     success: false,
     errors: [msg],
   });
+
+  successResponse = (payload: any) : IServiceResponse => ({
+    success: true, 
+    payload 
+  })
 }

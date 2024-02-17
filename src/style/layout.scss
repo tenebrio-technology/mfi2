@@ -1,0 +1,46 @@
+
+@import "./variables"; 
+
+#Header {
+  border-bottom: variables.$border-1;
+  min-height: variables.$header-height;
+  max-height: variables.$header-height;
+  background: variables.$bg-2;
+  z-index: 1000;
+  padding: 0 .4em; 
+  margin: 0px; 
+  .navbar-brand {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    color: #fff;
+    padding: 0;
+
+    .svg-inline--fa {
+      color: variables.$fg-1;
+    }
+
+    .logo {
+      height: variables.$header-height - 1;
+      fill: #fff;
+    }
+  }
+}
+
+
+#left-menu { 
+
+  border-right: variables.$border-1;
+  position: fixed;
+  top: variables.$header-height;
+  width: variables.$menu-width;
+  background: variables.$bg-2;
+  z-index: 1000;
+  height: calc(100vh - variables.$header-height);
+  display: block; 
+
+  .navbar-nav {
+    flex-direction: column;
+    align-items: top;
+   }
+
+}

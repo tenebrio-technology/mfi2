@@ -5,16 +5,10 @@ import { uiReducer, UIState } from './ui.reducer';
 import { authReducer, AuthState } from './auth.reducer';
 import { dataReducer, DataStates } from './data.reducer';
 
-export type RootState = {
-  core: CoreState;
-  auth: AuthState;
-  ui: UIState;
-  data: DataStates;
-};
-
 export const rootReducer = combineReducers({
   core: coreReducer,
   auth: authReducer,
   ui: uiReducer,
   data: dataReducer,
 });
+

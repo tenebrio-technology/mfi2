@@ -1,10 +1,6 @@
-import { BaseService, ServiceResponse } from './BaseService';
+import { BaseService } from './BaseService';
 import { ILocation } from '../model';
 
-interface ILoginCredentials {
-  username: string;
-  password: string;
-}
 
 export class LocationService extends BaseService {
   async fetch(organisationId?: number): Promise<ILocation[]> {

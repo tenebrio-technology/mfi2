@@ -8,7 +8,7 @@ export interface AuthState {
   authenticating: boolean;
   authenticationFailed: boolean;
   lastError?: string | null;
-  user?: IUser;
+  user?: IUser | null;
 }
 
 const initialState: AuthState = {
@@ -21,7 +21,6 @@ export const authReducer = createReducer<AuthState>(initialState, (builder) => {
   builder
 
     .addCase(AuthActions.setToken, (state, { payload }) => {
-      console.log('setToken reducer', payload);
       state.authToken = payload;
       state.authenticated = true;
     })
@@ -33,6 +32,7 @@ export const authReducer = createReducer<AuthState>(initialState, (builder) => {
 
     .addCase(AuthActions.loginSuccess, (state, { payload }) => {
       state.authToken = payload.token;
+      state.user = payload.user; 
       state.authenticating = false;
       state.authenticationFailed = false;
       state.authenticated = true;
@@ -45,7 +45,6 @@ export const authReducer = createReducer<AuthState>(initialState, (builder) => {
     })
 
     .addCase(AuthActions.logoutSuccess, (state) => {
-      console.log('logoutSuccess reducer ');
       state.authToken = null;
       state.user = undefined;
       state.authenticated = false;

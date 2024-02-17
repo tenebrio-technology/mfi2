@@ -1,8 +1,9 @@
-import { Api, AuthService, LocationService } from '.';
+import { Api, AuthService, LocationService, HabitatService } from '.';
 import { Logger } from './Logger';
 
 export * from './BaseService';
 export * from './LocationService';
+export * from "./HabitatService"; 
 export * from './AuthService';
 export * from './Logger';
 export * from './Api';
@@ -14,4 +15,5 @@ export class services {
   static api = new Api(baseURL, logger);
   static auth = new AuthService(baseURL, logger, this);
   static location = new LocationService(baseURL, logger, this);
+  static habitat = new HabitatService(baseURL, logger, this); 
 }

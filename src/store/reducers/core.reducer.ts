@@ -17,7 +17,6 @@ export const coreReducer = createReducer<CoreState>(initialState, (builder) => {
   builder
 
     .addCase(CoreActions.initialized, (state, action) => {
-      console.log('initialized reducer');
       state.initialized = true;
     })
 
