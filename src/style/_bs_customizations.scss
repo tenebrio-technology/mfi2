@@ -59,6 +59,29 @@
   }
 }
 
+.btn {
+  transition: background 0.3s ease-in;
+  margin-left: 6px; 
+}
+
+.btn-primary {
+  &:hover {
+    background: variables.$positive-bg;
+  }
+}
+.btn-warning {
+  background: variables.$bg-2;
+  border: variables.$border-1;
+  color: variables.$fg-1;
+
+  &:hover, &:focus, &:active {
+    background: variables.$warning-bg;
+    color: variables.$fg-1;
+    border: variables.$border-1 !important;
+  }
+
+}
+
 .alert-danger {
   background: #180404;
   color: #dd4040;

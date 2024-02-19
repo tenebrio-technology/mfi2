@@ -1,6 +1,4 @@
-import React from "react";
+import React from 'react';
 
-interface Props { 
-
-}
-export const HomeView: React.FC<Props> = () => <div>Home</div>
+interface Props {}
+export const HomeView: React.FC<Props> = () => <div>Home</div>;

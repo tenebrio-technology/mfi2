@@ -21,12 +21,10 @@ export const coreReducer = createReducer<CoreState>(initialState, (builder) => {
     })
 
     .addCase(CoreActions.networkError, (state, action) => {
-      console.log('networkError reducer', action);
       state.networkError = true;
     })
 
     .addCase(CoreActions.clearNetworkError, (state, action) => {
-      console.log('clear Network Error reducer');
       state.networkError = false;
     });
 });

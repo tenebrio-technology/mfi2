@@ -32,7 +32,7 @@ export const authReducer = createReducer<AuthState>(initialState, (builder) => {
 
     .addCase(AuthActions.loginSuccess, (state, { payload }) => {
       state.authToken = payload.token;
-      state.user = payload.user; 
+      state.user = payload.user;
       state.authenticating = false;
       state.authenticationFailed = false;
       state.authenticated = true;

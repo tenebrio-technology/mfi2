@@ -1,20 +1,18 @@
-
-@import "./variables";
+@import './variables';
 
 .content {
   padding-top: variables.$header-height;
   animation: fadeIn 1s;
 
   .navbar {
-
     border-bottom: variables.$border-1;
-    padding: .2em .4em; 
+    padding: 0.2em 0.4em;
 
-    .navbar-brand { 
+    .navbar-brand {
       color: #fff;
-      h1 { 
-        font-size: 18pt; 
-        margin: 0px; 
+      h1 {
+        font-size: 18pt;
+        margin: 0px;
       }
     }
   }

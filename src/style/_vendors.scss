@@ -11,7 +11,9 @@ $font-size-base: variables.$font-size;
 $primary: variables.$bg-1;
 $primary-border: #fff;
 $danger: variables.$error-fg;
-
+$table-color: variables.$fg-1;
+$table-striped-bg: variables.$bg-2;
+$table-hover-bg: variables.$bg-3;
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import './bs_customizations';
 

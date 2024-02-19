@@ -6,7 +6,6 @@ const uiEpics: EpicCollection = {
   toggelMenubar: (action$, state) =>
     action$.pipe(
       filter(UIActions.toggleMenubar.match),
-      tap(() => console.log('toggleMenubar epic', JSON.stringify(state.value.core))),
       map(() => ({ type: 'end' })),
     ),
 };

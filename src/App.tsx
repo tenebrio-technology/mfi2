@@ -1,54 +1,56 @@
 import './style/main.scss';
 import { Header, Menu } from './views/components';
-import { LoginView, LocationView, HabitatView, HomeView } from './views';
+import { Toaster } from 'react-hot-toast';
+import { LoginView, LocationView, HabitatView, MonitorView, HomeView } from './views';
 import { UIActions, CoreActions, AuthActions, useAppSelector, useAppDispatch } from './store';
 import { useEffect } from 'react';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { services } from "./services"; 
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { services } from './services';
 
 function App() {
-
   const dispatch = useAppDispatch();
-  const initialized = useAppSelector(state => state.core.initialized);
-  const authenticated = useAppSelector(state => state.auth.authenticated);
-  const user = useAppSelector(state => state.auth.user); 
-  const showSidebar = useAppSelector(state => state.ui.showMenubar); 
+  const initialized = useAppSelector((state) => state.core.initialized);
+  const authenticated = useAppSelector((state) => state.auth.authenticated);
+  const user = useAppSelector((state) => state.auth.user);
+  const showSidebar = useAppSelector((state) => state.ui.showMenubar);
 
   useEffect(() => {
-    
     !initialized && dispatch(CoreActions.initialize());
 
-    (async () => { 
-      if(!authenticated) {
+    (async () => {
+      if (!authenticated) {
         const token = await services.auth.getToken();
-        if(token) {
-          dispatch(AuthActions.verifyToken(token)); 
+        if (token) {
+          dispatch(AuthActions.verifyToken(token));
         }
       }
-    })(); 
-
+    })();
   }, []);
 
   return (
     <>
       {!authenticated && <LoginView />}
 
-      {authenticated && 
-      <BrowserRouter>
-        <Header onToggleSidebar={() => dispatch(UIActions.toggleMenubar())} 
-                onLogout={() => dispatch(AuthActions.logout())} 
-                user={user!} />
-        <Menu show={showSidebar} />
+      {authenticated && (
+        <BrowserRouter>
+          <Header
+            onToggleSidebar={() => dispatch(UIActions.toggleMenubar())}
+            onLogout={() => dispatch(AuthActions.logout())}
+            user={user!}
+          />
+          <Toaster position='top-right' toastOptions={{ className: 'toasty' }} />
+          <Menu show={showSidebar} />
 
           <div className='content'>
             <Routes>
-              <Route path="/" element={<HomeView/>} />
-              <Route path="/locations" element={<LocationView/>} />
-              <Route path="/habitats" element={<HabitatView/>} />
-              </Routes>
+              <Route path='/' element={<HomeView />} />
+              <Route path='/locations' element={<LocationView />} />
+              <Route path='/habitats' element={<HabitatView />} />
+              <Route path='/monitors' element={<MonitorView />} />
+            </Routes>
           </div>
-      </BrowserRouter>
-      }
+        </BrowserRouter>
+      )}
     </>
   );
 }

@@ -1,8 +1,6 @@
 import { ILogger } from '.';
 import { IServiceResponse } from '../model';
 
-
-
 export class BaseService {
   services: any;
   logger: ILogger;
@@ -12,13 +10,15 @@ export class BaseService {
     this.services = services;
   }
 
-  errorResponse = (msg: string): IServiceResponse => ({
+  errorResponse = (message: string, errors: string[] = []): IServiceResponse => ({
     success: false,
-    errors: [msg],
+    message,
+    errors,
   });
 
-  successResponse = (payload: any) : IServiceResponse => ({
-    success: true, 
-    payload 
-  })
+  successResponse = (message: string, payload: any = null): IServiceResponse => ({
+    success: true,
+    message,
+    payload,
+  });
 }

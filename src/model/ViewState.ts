@@ -1,4 +1,3 @@
-
-export interface ViewState { 
-  showFaq: boolean; 
+export interface ViewState {
+  showFaq: boolean;
 }

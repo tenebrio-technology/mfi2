@@ -3,30 +3,32 @@ import { Logo } from '../../assets/Logo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faUser, faSignOut } from '@fortawesome/free-solid-svg-icons';
 import { IUser } from '../../model';
-import { UIActions, CoreActions, AuthActions, useAppSelector, useAppDispatch } from '../../store';
+import { AuthActions, useAppDispatch } from '../../store';
 import { useNavigate } from 'react-router-dom';
 
-interface Props { 
-  user: IUser; 
-  onToggleSidebar: () => void; 
-  onLogout: () => void; 
+interface Props {
+  user: IUser;
+  onToggleSidebar: () => void;
+  onLogout: () => void;
 }
 
-export const Header: React.FC<Props> = ({onToggleSidebar, onLogout, user}) => {
-
+export const Header: React.FC<Props> = ({ onToggleSidebar, onLogout, user }) => {
   const dispatch = useAppDispatch();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
-  function logOut() { 
-    dispatch(AuthActions.logout()); 
-    navigate("/"); 
+  function logOut() {
+    dispatch(AuthActions.logout());
+    navigate('/');
   }
 
   return (
     <Navbar id='Header' fixed='top' expand='sm' className='justify-content-between'>
-
       <Navbar.Brand className='d-flex align-items-center p0'>
-        <FontAwesomeIcon className='ps-3 d-block d-sm-none' icon={faBars} onClick={onToggleSidebar} />
+        <FontAwesomeIcon
+          className='ps-3 d-block d-sm-none'
+          icon={faBars}
+          onClick={onToggleSidebar}
+        />
         <Logo className='ps-3' />
         <div className='ps-3 d-none d-sm-block'>micro farming intelligence</div>
       </Navbar.Brand>

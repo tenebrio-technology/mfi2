@@ -1,5 +1,4 @@
-
-@import "./variables"; 
+@import './variables';
 
 #Header {
   border-bottom: variables.$border-1;
@@ -7,8 +6,9 @@
   max-height: variables.$header-height;
   background: variables.$bg-2;
   z-index: 1000;
-  padding: 0 .4em; 
-  margin: 0px; 
+  padding: 0 0.4em;
+  margin: 0px;
+  z-index: 1000;
   .navbar-brand {
     font-family: 'Oswald', sans-serif;
     font-size: 1.8rem;
@@ -26,9 +26,7 @@
   }
 }
 
-
-#left-menu { 
-
+#left-menu {
   border-right: variables.$border-1;
   position: fixed;
   top: variables.$header-height;
@@ -36,11 +34,34 @@
   background: variables.$bg-2;
   z-index: 1000;
   height: calc(100vh - variables.$header-height);
-  display: block; 
+  display: block;
 
   .navbar-nav {
     flex-direction: column;
     align-items: top;
-   }
+  }
+}
 
+.main-section {
+  .title {
+    position: sticky;
+    top: variables.$header-height;
+    background: variables.$bg-1;
+    height: 2.6rem;
+    margin: 0px -12px;
+    margin-bottom: 12px;
+    z-index: 100;
+  }
+
+  .sticky-table-header {
+    position: sticky;
+    top: variables.$header-height + 2.6rem;
+  }
+}
+
+.data-table {
+  .action-column {
+    width: 5rem;
+    text-align: center;
+  }
 }

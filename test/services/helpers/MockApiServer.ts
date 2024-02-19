@@ -1,13 +1,7 @@
-
-import express from "express"; 
+import express from 'express';
 
 export class MockApiServer {
-
-  constructor() { 
-    const app = express(); 
-    
+  constructor() {
+    const app = express();
   }
-
 }
-
-

@@ -2,10 +2,9 @@
 @use './animation';
 
 @import './vendors'; // Bootstrap cusatomization
-@import "./layout"; 
+@import './layout';
 
-@import './content'; 
-
+@import './content';
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -21,15 +20,26 @@ input:-webkit-autofill:focus {
     color 0s 600000s;
 }
 
-
-.closable { 
-
-  .close { 
+.closable {
+  .close {
     color: variables.$fg-1;
-    display: none; 
+    display: none;
   }
 
-  &:hover .close { 
-    display: block; 
+  &:hover .close {
+    display: block;
+  }
+}
+
+.toasty {
+  background: variables.$bg-1 !important;
+  color: variables.$fg-1 !important;
+  border: variables.$border-1 !important;
+}
+
+.action-column {
+  .link:hover {
+    cursor: pointer;
+    color: #844;
   }
 }

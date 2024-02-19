@@ -1,6 +1,6 @@
 import { Container, Row, Col, Card, Table } from 'react-bootstrap';
 import './locationview.scss';
-import { Faq } from "./components/Faq"; 
+import { Faq } from './components/Faq';
 
 export const LocationView = () => (
   <Container fluid>
@@ -21,7 +21,7 @@ export const LocationView = () => (
         </Container>
       </Col>
       <Col className='ms-auto'>
-        <Faq/>
+        <Faq />
       </Col>
     </Row>
 

@@ -1,3 +1,2 @@
-
-export * from "./IServiceResponse"; 
-export * from "./Login"; 
+export * from './IServiceResponse';
+export * from './Login';
